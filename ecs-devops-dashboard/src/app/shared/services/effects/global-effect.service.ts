@@ -172,11 +172,14 @@ export class GlobalEffectService {
             const urlTree = this.router.createUrlTree(commands, {queryParams: param.queryParams})
             UrlUtils.openWindow(urlTree);
           } else {
+            const extras: any = {}
             if (param.queryParams) {
-              this.router.navigate(commands, {queryParams: param.queryParams})
-            } else {
-              this.router.navigate(commands);
+              extras.queryParams = param.queryParams
             }
+            if (param.replaceUrl === true) {
+              extras.replaceUrl = true
+            }
+            this.router.navigate(commands, extras);
           }
         }
       })

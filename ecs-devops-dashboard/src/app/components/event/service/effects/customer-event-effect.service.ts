@@ -407,6 +407,15 @@ export class CustomerEventEffectService extends ComponentStore<any> {
     )
   })
 
+  public acceptEvent(request: any){
+    return this.ecsApiService.acceptInquiredSystemEvent(request).pipe(
+      catchError(err => {
+        console.log(`accept event error`, err)
+        return of(null)
+      })
+    )
+  }
+
   /**
    * 获取本地Table状态
    */

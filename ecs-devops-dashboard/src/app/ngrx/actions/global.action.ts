@@ -56,7 +56,8 @@ export const changeUrlSearchParamsAction = createAction("changeUrlSearchParams",
 export const routerLinkAction = createAction("routerLinkAction", props<{
   commands: Array<string> | string,
   queryParams?: Params,
-  openTab?: boolean
+  openTab?: boolean,
+  replaceUrl?: boolean
 }>())
 
 /**

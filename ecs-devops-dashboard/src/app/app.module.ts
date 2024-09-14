@@ -31,8 +31,9 @@ import {
 } from './ngrx/reducers/global.reducer';
 import {NzDrawerModule} from 'ng-zorro-antd/drawer';
 import {SidebarMenuComponent} from './shared/components/sidebar-menu/sidebar-menu.component';
-import {menuDataReducer, menuSelectIndexReducer, menuVisibleReducer} from './ngrx/reducers/menu.reducrt';
+import {menuDataReducer, menuVisibleReducer} from './ngrx/reducers/menu.reducrt';
 import {StaticDataInterceptor} from "./shared/services/interceptors/static-data.interceptor";
+import {MapItemPositionDirective} from './shared/directive/map-item-position.directive';
 
 registerLocaleData(zh);
 
@@ -46,14 +47,13 @@ const reducerMap = {
   menuVisible: menuVisibleReducer,
   menuData: menuDataReducer,
   akSettingVisible: accessKeySettingVisibleReducer,
-  menuSelectIndex: menuSelectIndexReducer,
   accessKeyInfo: accessKeyReducer,
   regionInfo: regionInfoReducer
 }
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

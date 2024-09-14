@@ -446,6 +446,33 @@ export class HealthStatusEffectService extends ComponentStore<any> {
     )
   }
 
+  public injectFaults(params: any) {
+    return this.ecsApiService.runCommand(params).pipe(
+      catchError(err => {
+        console.log(`inject faults error`, err)
+        return of(null)
+      })
+    )
+  }
+
+  public stopInstance(params: any) {
+    return this.ecsApiService.stopInstance(params).pipe(
+      catchError(err => {
+        console.log(`stop instance error`, err)
+        return of(null)
+      })
+    )
+  }
+
+  public queryInstance(params: any) {
+    return this.ecsApiService.describeInstances(params).pipe(
+      catchError(err => {
+        console.log(`query instance error`, err)
+        return of(null)
+      })
+    )
+  }
+
 
   public readonly pieChartData = this.select(state => state.pieChart)
 

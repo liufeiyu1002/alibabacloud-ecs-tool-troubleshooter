@@ -99,6 +99,7 @@ export class PageHeaderComponent implements OnInit {
     }
     this.store.dispatch(changeAccessKeyAction({accessKeyId: this.ak, accessKeySecret: this.sk}))
     this.store.dispatch(closeAccessKeySettingAction())
+    window.location.reload()
   }
 
 }
