@@ -85,3 +85,7 @@ export const changeAccessKeyAction = createAction("changeAccessKeyInfo", props<{
 export const initRegionInfoAction = createAction("initRegionInfoAction", props<{
   Region: { RegionId: string, RegionEndpoint: string, LocalName: string }[]
 }>())
+
+export const saveSelectedRegionAction = createAction("saveSelectedRegionAction", props<{
+  selectedRegion: string[]
+}>())

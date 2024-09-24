@@ -29,6 +29,7 @@ export class GlobalConstant {
   }
 
   public static readonly ACCESS_KEY_INFO_STORE_KEY = "ecs_access_info"
+  public static readonly SELECTED_REGION_INFO_STORE_KEY = "ecs_selected_region_info"
 
   public static readonly HEALTH_STATUS_MAP: any = {
     "Ok": "正常",

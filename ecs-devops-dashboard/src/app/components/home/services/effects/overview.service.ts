@@ -354,11 +354,12 @@ export class OverviewService extends ComponentStore<any> {
   })
 
   private loadInstanceData(param: { RegionId: string, [key: string]: any }) {
+    param['MaxResults'] = 100
     return this.ecsApiService.describeInstances(param).pipe(
       expand((value: any) => {
         if (value['NextToken']) {
           param['NextToken'] = value['NextToken']
-          param['PageNumber'] = value['PageNumber'] + 1
+          param['MaxResults'] = 100
           return this.ecsApiService.describeInstances(param)
         } else {
           return EMPTY

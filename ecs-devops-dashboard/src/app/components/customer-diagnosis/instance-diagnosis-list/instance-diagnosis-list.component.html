@@ -16,11 +16,11 @@
       </div>
       <div>
         <nz-input-group nzCompact>
-          <nz-select [(ngModel)]="searchType">
+          <nz-select [(ngModel)]="searchType" (ngModelChange)="searchTypeChange($event)">
             <nz-option [nzLabel]="'资源ID'" [nzValue]="'resourceId'"></nz-option>
             <nz-option [nzLabel]="'报告ID'" [nzValue]="'reportId'"></nz-option>
           </nz-select>
-          <input [(ngModel)]="searchValue" nz-input style="width: 300px" type="text"/>
+          <input [(ngModel)]="searchValue" [placeholder]="searchPlaceholder" nz-input style="width: 300px" type="text"/>
           <button (click)="search()" nz-button nzType="primary">查询</button>
         </nz-input-group>
       </div>
@@ -38,7 +38,7 @@
       <tr>
         <th nzLeft nzWidth="260px">报告ID</th>
         <th nzWidth="260px">资源ID</th>
-        <th nzWidth="200px">诊断集名称</th>
+        <th nzWidth="220px">诊断集名称</th>
         <th nzWidth="200px">诊断时间</th>
         <th>诊断类别</th>
         <th nzColumnKey="status" [nzFilterMultiple]="false" [nzFilters]="reportStatusFilters" [nzFilterFn]="true">诊断状态</th>

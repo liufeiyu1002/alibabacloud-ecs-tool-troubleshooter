@@ -4,7 +4,7 @@ import {HttpClient, HttpContext} from "@angular/common/http";
 import {AliYunClientService} from "../services/aliyun-client.service";
 import {Store} from "@ngrx/store";
 import {AliYunClientConfig} from "../services/config/aliyun-client-config";
-import {selectAccessKeyInfo, selectRegionInfo} from "../ngrx/selectors/global.select";
+import {selectAccessKeyInfo, selectAllRegionInfo} from "../ngrx/selectors/global.select";
 
 
 /**
@@ -44,7 +44,7 @@ export class EcsApiService {
 
     this.ecsClient = new AliYunClientService(httpClient, clientConfig)
 
-    const regionSubscribe = this.store.select(selectRegionInfo).subscribe((data: {
+    const regionSubscribe = this.store.select(selectAllRegionInfo).subscribe((data: {
       RegionId: string,
       RegionEndpoint: string,
       LocalName: string
@@ -288,7 +288,7 @@ export class EcsApiService {
    * @param params
    * @link https://next.api.aliyun.com/api/Ecs/2014-05-26/RunCommand
    */
-  public runCommand(params: BaseApiRequest){
+  public runCommand(params: BaseApiRequest) {
     return this.ecsClient.sendRequest("RunCommand", params)
   }
 
@@ -297,7 +297,7 @@ export class EcsApiService {
    * @param params
    * @link https://next.api.aliyun.com/api/Ecs/2014-05-26/StopInstance
    */
-  public stopInstance(params: BaseApiRequest){
+  public stopInstance(params: BaseApiRequest) {
     return this.ecsClient.sendRequest("StopInstance", params)
   }
 
@@ -306,7 +306,7 @@ export class EcsApiService {
    * @param params
    * @link https://next.api.aliyun.com/api/Ecs/2014-05-26/DescribeInstanceMonitorData
    */
-  public describeInstanceMonitorData(params: BaseApiRequest){
+  public describeInstanceMonitorData(params: BaseApiRequest) {
     return this.ecsClient.sendRequest("DescribeInstanceMonitorData", params)
   }
 

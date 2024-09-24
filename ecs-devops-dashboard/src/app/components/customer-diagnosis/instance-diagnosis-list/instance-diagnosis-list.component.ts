@@ -30,6 +30,8 @@ export class InstanceDiagnosisListComponent implements OnInit, OnDestroy {
 
   searchValue = ""
 
+  searchPlaceholder = "请输入诊断报告ID"
+
   nextToken = ''
 
   regionInfo: any = []
@@ -89,6 +91,14 @@ export class InstanceDiagnosisListComponent implements OnInit, OnDestroy {
         this.search()
       })
     })
+  }
+
+  searchTypeChange(data: any) {
+    if (data === "reportId") {
+      this.searchPlaceholder = "请输入诊断报告ID"
+    } else {
+      this.searchPlaceholder = "请输入资源ID"
+    }
   }
 
   tableQueryParams(data: any) {
