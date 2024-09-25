@@ -166,7 +166,7 @@ export class HealthStatusEffectService extends ComponentStore<any> {
   private loadInstanceFullStatus(param: { RegionId: string, [key: string]: any }) {
     return this.ecsApiService.describeInstanceFullStatus(param).pipe(
       expand((value: any) => {
-        if (value['TotalCount'] - value.PageNumber * value.pageSize > 0) {
+        if (value['TotalCount'] - value.PageNumber * value.PageSize > 0) {
           param['PageNumber'] = value['PageNumber'] + 1
           return this.ecsApiService.describeInstanceFullStatus(param)
         } else {
@@ -174,7 +174,7 @@ export class HealthStatusEffectService extends ComponentStore<any> {
         }
       }, 1),
       takeWhile((value: any) => {
-        return value['TotalCount'] - value.PageNumber * value.pageSize > 0
+        return value['TotalCount'] - value.PageNumber * value.PageSize > 0
       }, true),
       reduce((v1: [], v2: any) => {
         const value: [] = (v2['InstanceFullStatusSet']['InstanceFullStatusType'] as []);
