@@ -1,4 +1,4 @@
-import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, inject, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {Store} from "@ngrx/store";
 import {selectRegionInfo} from "../../../ngrx/selectors/global.select";
 
@@ -18,6 +18,9 @@ export class ResourceDistributionComponent implements OnDestroy {
 
   instanceDataMap: any = {}
 
+  @Output() itemClick = new EventEmitter<string>();
+
+
   @Input()
   set value(value: any) {
     this.loading = value.spinning
@@ -31,6 +34,13 @@ export class ResourceDistributionComponent implements OnDestroy {
   private regionSub = this.store.select(selectRegionInfo).subscribe(res => {
     this.regionData = res;
   })
+
+  pointClick(regionId: string) {
+    if (this.hasValue(regionId)) {
+      document.body.click()
+      this.itemClick.emit(regionId)
+    }
+  }
 
   getInstanceData(regionId: string) {
     return this.instanceDataMap[regionId] || {}

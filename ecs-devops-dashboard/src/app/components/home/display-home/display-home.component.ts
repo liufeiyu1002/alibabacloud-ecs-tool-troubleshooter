@@ -42,6 +42,8 @@ export class DisplayHomeComponent implements OnInit, OnDestroy {
 
   private regionData: any = {}
 
+  selectedIndex = 0
+
   public statisticsData = this.overviewService.statisticsData
   public instanceCharts = this.overviewService.instanceCharts
   public resourceData = this.overviewService.resourceData
@@ -399,6 +401,17 @@ export class DisplayHomeComponent implements OnInit, OnDestroy {
         }
       }
     })
+  }
+
+  itemClick(data: any, event: any) {
+    this.selectedIndex = 1;
+    if (data) {
+      data.forEach((item: any) => {
+        if (item.regionId === event) {
+          item.expand = true
+        }
+      })
+    }
   }
 
 }

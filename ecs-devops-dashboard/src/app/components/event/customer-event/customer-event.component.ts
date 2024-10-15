@@ -357,7 +357,7 @@ export class CustomerEventComponent implements OnInit, OnDestroy {
   };
 
   public needAccept(val: string) {
-    return val === 'Inquiring'
+    return val === 'Inquiring' || val === 'Scheduled'
   }
 
   public acceptEvent(event: any) {

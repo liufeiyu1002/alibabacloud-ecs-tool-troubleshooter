@@ -1,7 +1,7 @@
 <div class="instance-diagnosis-container">
   <div class="instance-diagnosis-container-title">
     <div *ngIf="!isUpdate" class="instance-diagnosis-container-title-create">
-      <span>实例诊断</span>
+      <ops-instance-diagnosis-header/>
     </div>
     <div *ngIf="isUpdate" class="instance-diagnosis-container-title-update">
       <span (click)="backToTaskList()" nz-icon nzTheme="outline" nzType="arrow-left"></span>

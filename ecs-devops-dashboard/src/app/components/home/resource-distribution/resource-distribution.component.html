@@ -10,20 +10,21 @@
              [nzPopoverContent]="contentTemplate"
              [regionId]="data.RegionId"
              [width]="mapContainer.clientWidth"
+             (click)="pointClick(data.RegionId)"
              class="resource-distribution-content-item"
              nz-popover
              nzPopoverTrigger="hover"
              opsMapItemPosition
         >
-          <div *ngIf="!hasValue(data.RegionId)" class="resource-distribution-content-item-spot">
+<!--          <div *ngIf="!hasValue(data.RegionId)" class="resource-distribution-content-item-spot">-->
+<!--            <ng-container *ngTemplateOutlet="naturalCoordinateSpot;"></ng-container>-->
+<!--          </div>-->
+
+          <div *ngIf="hasValue(data.RegionId)" class="resource-distribution-content-item-spot">
             <ng-container *ngTemplateOutlet="naturalCoordinateSpot;"></ng-container>
           </div>
 
-          <div *ngIf="hasValue(data.RegionId)" class="resource-distribution-content-item-spot">
-            <ng-container *ngTemplateOutlet="errorCoordinateSpot;"></ng-container>
-          </div>
-
-          <div>
+          <div *ngIf="hasValue(data.RegionId)">
             <div class="resource-distribution-content-item-font">{{data.LocalName}}</div>
           </div>
           <ng-template #contentTemplate>

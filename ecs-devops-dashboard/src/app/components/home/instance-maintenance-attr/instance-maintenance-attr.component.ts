@@ -27,14 +27,14 @@ export class InstanceMaintenanceAttrComponent {
 
     if (val.instanceIds.length > 1) {
       this.maintenanceAction = 'AutoRecover';
-      this.notifyOnMaintenance = true;
+      // this.notifyOnMaintenance = true;
       this.startTime = "";
       this.endTime = "";
     } else {
 
       if (val.instanceMaintenanceAttr) {
         this.maintenanceAction = val.instanceMaintenanceAttr.ActionOnMaintenance ? val.instanceMaintenanceAttr.ActionOnMaintenance.Value : 'AutoRecover';
-        this.notifyOnMaintenance = val.instanceMaintenanceAttr.NotifyOnMaintenance === undefined ? true : val.instanceMaintenanceAttr.NotifyOnMaintenance;
+        // this.notifyOnMaintenance = val.instanceMaintenanceAttr.NotifyOnMaintenance === undefined ? true : val.instanceMaintenanceAttr.NotifyOnMaintenance;
         if (val.instanceMaintenanceAttr.MaintenanceWindows
           && val.instanceMaintenanceAttr.MaintenanceWindows.MaintenanceWindow
           && val.instanceMaintenanceAttr.MaintenanceWindows.MaintenanceWindow[0]) {
@@ -202,7 +202,7 @@ export class InstanceMaintenanceAttrComponent {
     this.overviewService.modifyInstanceMaintenanceAttr({
       RegionId: this.regionId,
       ActionOnMaintenance: this.maintenanceAction,
-      NotifyOnMaintenance: this.notifyOnMaintenance,
+      // NotifyOnMaintenance: this.notifyOnMaintenance,
       InstanceId: this.instanceIds,
       MaintenanceWindow: [
         {

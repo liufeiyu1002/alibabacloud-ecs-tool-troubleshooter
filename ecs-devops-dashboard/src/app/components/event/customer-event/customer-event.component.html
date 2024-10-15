@@ -89,7 +89,7 @@
             <thead>
             <tr>
               <th nzWidth="232px">实例ID</th>
-              <th [nzFilterFn]="dataFilters.regionFilter"
+              <th nzWidth="120px" [nzFilterFn]="dataFilters.regionFilter"
                   [nzFilters]="regionFilters">地域
               </th>
               <th nzWidth="235px">事件ID</th>
@@ -101,7 +101,7 @@
               </th>
               <th>发布时间</th>
               <th>完成时间</th>
-              <th>操作</th>
+              <th nzWidth="70px">操作</th>
             </tr>
             </thead>
             <tbody>
@@ -138,7 +138,7 @@
               </span>
                 <ng-template #noAccept>
                 <span>
-                  /
+                  -
                 </span>
                 </ng-template>
               </td>

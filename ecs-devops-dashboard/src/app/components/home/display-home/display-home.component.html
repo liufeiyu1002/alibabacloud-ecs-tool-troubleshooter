@@ -132,7 +132,11 @@
         </svg>
       </div>
     </ng-template>
-    <nz-tabset>
+    <nz-tabset
+      [(nzSelectedIndex)]="selectedIndex">
+      <nz-tab nzTitle="资源分布">
+        <ops-resource-distribution (itemClick)="itemClick(rdata.value, $event)" [value]="rdata"/>
+      </nz-tab>
       <nz-tab nzTitle="资源列表">
         <nz-table #basicTable [nzData]="rdata.value" [nzLoading]="rdata.spinning" style="width: 100%">
           <thead>
@@ -460,9 +464,6 @@
           </ng-container>
           </tbody>
         </nz-table>
-      </nz-tab>
-      <nz-tab nzTitle="资源分布">
-        <ops-resource-distribution [value]="rdata"/>
       </nz-tab>
     </nz-tabset>
   </div>

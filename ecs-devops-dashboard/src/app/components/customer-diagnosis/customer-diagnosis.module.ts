@@ -63,6 +63,7 @@ import {NzInputNumberModule} from "ng-zorro-antd/input-number";
 import {NzSpaceModule} from "ng-zorro-antd/space";
 import {NzDescriptionsModule} from "ng-zorro-antd/descriptions";
 import {NzSwitchModule} from "ng-zorro-antd/switch";
+import { InstanceDiagnosisHeaderComponent } from './instance-diagnosis-header/instance-diagnosis-header.component';
 
 
 @NgModule({
@@ -126,6 +127,7 @@ import {NzSwitchModule} from "ng-zorro-antd/switch";
     InstanceDiagnosisTaskBatchConcurrencyControlType,
     InstanceDiagnosisTaskBatchControlType,
     InstanceDiagnosisTaskDetailComponent,
+    InstanceDiagnosisHeaderComponent,
   ],
   providers: [],
   exports: []

@@ -120,7 +120,7 @@ export class InstanceDiagnosisListComponent implements OnInit, OnDestroy {
   }
 
   calculateHeight() {
-    return Math.max(471, window.innerHeight - 247) + "px"
+    return Math.max(0, window.innerHeight - 287) + "px"
   }
 
   checkResourceId() {
