@@ -289,6 +289,7 @@ export class DiagnosisEffectService extends ComponentStore<any> {
         this.patchState({instanceInfo: {spinning: true, data: [], error: null}})
       }),
       switchMap((param: any) => {
+        param.MaxResults = 100
         return this.loadInstanceData(param)
       }),
       tapResponse({
