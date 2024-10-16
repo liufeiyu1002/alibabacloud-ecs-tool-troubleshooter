@@ -15,16 +15,17 @@
           nz-popover
           nzPopoverTrigger="hover"
           opsMapItemPosition
+          *ngrxLet="getEventData(data.RegionId) as eventInfo"
         >
-          <div *ngIf="!hasValue(data.RegionId)" class="event-distribution-content-item-spot">
+          <div *ngIf="eventInfo.eventTypeCount === 0 && eventInfo.instanceCount > 0" class="event-distribution-content-item-spot">
             <ng-container *ngTemplateOutlet="naturalCoordinateSpot;"></ng-container>
           </div>
 
-          <div *ngIf="hasValue(data.RegionId)" class="event-distribution-content-item-spot">
+          <div *ngIf="eventInfo.eventTypeCount > 0" class="event-distribution-content-item-spot">
             <ng-container *ngTemplateOutlet="errorCoordinateSpot;"></ng-container>
           </div>
 
-          <div>
+          <div *ngIf="eventInfo.eventTypeCount > 0 || eventInfo.instanceCount > 0">
             <div class="event-distribution-content-item-font">{{data.LocalName}}</div>
           </div>
           <ng-template #contentTemplate>
