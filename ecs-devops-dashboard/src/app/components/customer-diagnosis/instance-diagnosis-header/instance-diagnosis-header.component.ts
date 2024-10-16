@@ -29,9 +29,12 @@ export class InstanceDiagnosisHeaderComponent implements OnInit {
     }
   ]
 
+  regionId = "cn-hangzhou"
+
   ngOnInit(): void {
     this.store.select(selectCurrentUrlAndSearchParams).subscribe(res => {
       this.handlerUrl(res.url)
+      this.regionId = res.searchParams['regionId'] || "cn-hangzhou"
     })
   }
 
@@ -51,7 +54,7 @@ export class InstanceDiagnosisHeaderComponent implements OnInit {
       this.store.dispatch(routerLinkAction({
         commands: split,
         queryParams: {
-          regionId: "cn-hangzhou"
+          regionId: this.regionId
         }
       }))
     }

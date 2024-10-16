@@ -8,6 +8,7 @@ import {
   TASK_STATUS
 } from "../constants/customer-diagnosis.constants";
 import {NzModalService} from "ng-zorro-antd/modal";
+import {selectQueryParams} from "../../../ngrx/selectors/global.select";
 
 @Component({
   selector: 'ops-instance-diagnosis-task-list',
@@ -117,8 +118,15 @@ export class InstanceDiagnosisTaskListComponent implements OnInit, OnDestroy {
   taskTemplate = BATCH_CREATE_DIAGNOSTIC_TEMP + "," + BATCH_SCHEDULE_DIAGNOSTIC_TEMP
 
   ngOnInit(): void {
+    this.initParams()
     this.loadOosRegion()
     this.loadDiagnosisTaskList()
+  }
+
+  initParams(){
+    this.store.select(selectQueryParams).subscribe((data: any)=>{
+      this.regionId = data.regionId
+    })
   }
 
   taskTemplateChange(data: any) {
